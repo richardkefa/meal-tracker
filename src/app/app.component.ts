@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Meal } from './meal'
+import { MealentryService } from './mealEntryService/mealentry.service'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Meal-tracker';
+  mealentrys:any[];
+  constructor( mealentrys:MealentryService){
+   this.mealentrys= mealentrys.getMeal()
+  }
 }
